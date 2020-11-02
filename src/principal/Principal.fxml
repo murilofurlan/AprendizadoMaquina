@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="701.0" prefWidth="1203.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.PrincipalController">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Simpsons">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <items>
+                              <ScrollPane hbarPolicy="ALWAYS" prefHeight="287.0" prefWidth="216.0" vbarPolicy="ALWAYS">
+                                 <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                              <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                                <items>
+                                    <TitledPane animated="false" text="Características">
+                                       <content>
+                                          <AnchorPane prefHeight="297.0" prefWidth="595.0">
+                                             <children>
+                                                <Label layoutX="107.0" layoutY="32.0" text="Milhouse">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="394.0" layoutY="32.0" text="Ned Flanders">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="384.0" layoutY="88.0" text="Cabelo/Bigode marrom:" />
+                                                <Label layoutX="408.0" layoutY="174.0" prefHeight="17.0" prefWidth="78.0" text="Sweater verde:" />
+                                                <Label layoutX="65.0" layoutY="174.0" prefHeight="17.0" prefWidth="159.0" text="Bermuda/Sapato vermelho:" />
+                                                <Label layoutX="77.0" layoutY="88.0" text="Cabelo/Sobrancelha azul:" />
+                                                <Label fx:id="milhouseCabeloAzul" layoutX="70.0" layoutY="117.0" prefHeight="17.0" prefWidth="149.0">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="milhouseBermudaSapatoVermelho" layoutX="69.0" layoutY="204.0" prefHeight="17.0" prefWidth="149.0">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="nedCabeloBigodeMarrom" layoutX="369.0" layoutY="109.0" prefHeight="17.0" prefWidth="157.0">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="nedSweaterVerde" layoutX="380.0" layoutY="204.0" prefHeight="17.0" prefWidth="134.0">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane animated="false" text="Naive Bayes (Identificação de personagens)">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="358.0" prefWidth="595.0">
+                                             <children>
+                                                <Label layoutX="421.0" layoutY="49.0" text="Ned Flanders">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="85.0" layoutY="49.0" text="Milhouse">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="percentMilhouse" alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="71.0" prefHeight="79.0" prefWidth="176.0" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="27.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="percentNed" alignment="CENTER" contentDisplay="CENTER" layoutX="386.0" layoutY="76.0" prefHeight="79.0" prefWidth="176.0" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="27.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </TitledPane>
+                                    <TitledPane animated="false" text="J48">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Label layoutX="81.0" layoutY="33.0" text="Milhouse">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="423.0" layoutY="33.0" text="Ned Flanders">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="percentNedJ48" alignment="CENTER" contentDisplay="CENTER" layoutX="388.0" layoutY="79.0" prefHeight="79.0" prefWidth="176.0" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="27.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="percentMilhouseJ48" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="79.0" prefHeight="79.0" prefWidth="176.0" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="27.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </TitledPane>
+                                </items>
+                              </SplitPane>
+                          </items>
+                        </SplitPane>
+                     </center>
+                     <top>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#extrairCaracteristicas" text="Extrai Caracteristicas Base Treinamento">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#selecionaImagem" text="Seleciona Imagem">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </content>
+          </Tab>
+          <Tab text="Gato e Cachorro">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#extrairCaracteristicasAudio" text="Extrai características Base de treinamento">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="3.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <HBox>
+                                 <children>
+                                    <Label text="Taxa de aprendizagem">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="taxaAprendizagem">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="3.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label text="Ciclos de treinamento">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="cicloTreinamento">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="3.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" onAction="#selecionaAudio" text="Selecionar áudio">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="3.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </top>
+                     <center>
+                        <SplitPane dividerPositions="0.5004163197335554" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Console">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea fx:id="consoleAudio" layoutX="14.0" layoutY="39.0" prefHeight="590.0" prefWidth="578.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <Label layoutX="249.0" layoutY="495.0" text="Animal">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="28.0" layoutY="55.0" text="Magnitude">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="375.0" layoutY="55.0" text="Espectograma">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="29.0" layoutY="214.0" text="STFT">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="animalIdentificado" layoutX="248.0" layoutY="540.0" textFill="#e80000">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="magnitude" layoutX="27.0" layoutY="112.0" textFill="#e80000">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="espectograma" layoutX="374.0" layoutY="118.0" textFill="#e80000">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="stft" layoutX="27.0" layoutY="266.0" textFill="#e80000">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="374.0" layoutY="214.0" text="MCCF">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="mccf" layoutX="374.0" layoutY="247.0" textFill="#e80000">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </center>
+                  </BorderPane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
