@@ -45,10 +45,6 @@ public class ExtractCaracteristicaAudio {
 
 			String classe = GatoCachorroEnum.getClassePerValue(caracteristicas[cont][4]);
 
-			System.out.println("Magnitude: " + caracteristicas[cont][0] + " - Espectograma: " + caracteristicas[cont][1]
-					+ " - STFT: " + caracteristicas[cont][2] + " - MCCF: " + caracteristicas[cont][3] + " - Classe: "
-					+ classe);
-
 			exportacao += caracteristicas[cont][0] + "," + caracteristicas[cont][1] + "," + caracteristicas[cont][2]
 					+ "," + caracteristicas[cont][3] + "," + classe + "\n";
 		}
@@ -92,7 +88,6 @@ public class ExtractCaracteristicaAudio {
 		wavFile.close();
 		float[][] melSpectrogramGerado = jLibrosa2.generateMelSpectroGram(MagnitudeFeature, mSampleRate, 2048, 128,
 				256);
-		System.out.println("Espectograma: " + melSpectrogramGerado[0][0]);
 
 		caracteristica2 = melSpectrogramGerado[0][0];
 
@@ -102,7 +97,6 @@ public class ExtractCaracteristicaAudio {
 		int mSampleRate3 = (int) wavFile3.getSampleRate();
 		wavFile3.close();
 		Complex[][] stftComplexValues = jLibrosa3.generateSTFTFeatures(MagnitudeFeature, mSampleRate3, 40);
-		System.out.println("Tamanho do STFT: " + stftComplexValues.length + " , " + stftComplexValues[0].length);
 
 		caracteristica3 = stftComplexValues[0].length;
 
@@ -112,8 +106,6 @@ public class ExtractCaracteristicaAudio {
 		int mSampleRate4 = (int) wavFile4.getSampleRate();
 		wavFile4.close();
 		float[][] mfccValues = jLibrosa4.generateMFCCFeatures(MagnitudeFeature, mSampleRate4, 40);
-
-		System.out.println("MCCF: " + mfccValues[0][0]);
 
 		caracteristica4 = mfccValues[0].length;
 
@@ -158,8 +150,6 @@ public class ExtractCaracteristicaAudio {
 		if (wavFile != null) {
 			wavFile.close();
 		}
-
-		System.out.println("Magnitude: " + buffer[0][0]);
 
 		return buffer;
 	}

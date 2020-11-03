@@ -99,11 +99,6 @@ public class PrincipalController {
 			this.milhouseCabeloAzul.setText(caracteristicas[2] + "%");
 			this.milhouseBermudaSapatoVermelho.setText(caracteristicas[3] + "%");
 			
-			System.out.println("-------------- CARACTERISTICAS --------------");
-			
-			for (double d : caracteristicas)
-				System.out.println(d);
-			
 			double[] percentsNaiveBayes = AprendizadoNaiveBaye.naiveBayes(caracteristicas);
 			
 			DecimalFormat df = new DecimalFormat("0.00000");
@@ -111,20 +106,10 @@ public class PrincipalController {
 			this.percentNed.setText(df.format(percentsNaiveBayes[0]*100) + "%");
 			this.percentMilhouse.setText(df.format(percentsNaiveBayes[1]*100) + "%");
 			
-			System.out.println("-------------- PORCENTAGEM NAIVE BAYES PERSONAGENS --------------");
-			
-			System.out.println("Ned: " + percentsNaiveBayes[0]);
-			System.out.println("Milhouse: " + percentsNaiveBayes[1]);
-
 			double[] percentsJ48 = AprendizadoJ48.j48(caracteristicas);
 			
 			this.percentNedJ48.setText(df.format(percentsJ48[0]*100) + "%");
 			this.percentMilhouseJ48.setText(df.format(percentsJ48[1]*100) + "%");
-			
-			System.out.println("-------------- PORCENTAGEM J48 PERSONAGENS --------------");
-			
-			System.out.println("Ned: " + percentsJ48[0]);
-			System.out.println("Milhouse: " + percentsJ48[1]);
 			
 		}
 	}
@@ -152,45 +137,24 @@ public class PrincipalController {
 				
 				DecimalFormat df = new DecimalFormat("0.00000");
 				
-				System.out.println("-------------- PORCENTAGEM NAIVE BAYES AUDIO --------------");
-				
 				this.consoleAudio.setText(this.consoleAudio.getText() + "\n\n -------------- PORCENTAGEM NAIVE BAYES AUDIO --------------");
 				
-				System.out.println("Gato: " + percentsNaiveBayes[0]);
-				System.out.println("Cachorro: " + percentsNaiveBayes[1]);
-				System.out.println("Gato: " + df.format(percentsNaiveBayes[0]*100) + "%");
-				System.out.println("Cachorro: " + df.format(percentsNaiveBayes[1]*100) + "%");
-
 				this.consoleAudio.setText(this.consoleAudio.getText() + "\n\n Gato: " + df.format(percentsNaiveBayes[0]*100) + "%");
 				this.consoleAudio.setText(this.consoleAudio.getText() + "\n\n Cachorro: " + df.format(percentsNaiveBayes[1]*100) + "%");
 				
 				double[] percentsJ48 = AprendizadoJ48.j48(caracteristicas);
 				
-				System.out.println("-------------- PORCENTAGEM J48 AUDIO --------------");
-				
 				this.consoleAudio.setText(this.consoleAudio.getText() + "\n\n -------------- PORCENTAGEM J48 AUDIO --------------");
 				
-				System.out.println("Gato: " + percentsJ48[0]);
-				System.out.println("Cachorro: " + percentsJ48[1]);
-				System.out.println("Gato: " + df.format(percentsJ48[0]*100) + "%");
-				System.out.println("Cachorro: " + df.format(percentsJ48[1]*100) + "%");
-
 				this.consoleAudio.setText(this.consoleAudio.getText() + "\n\n Gato: " + df.format(percentsJ48[0]*100) + "%");
 				this.consoleAudio.setText(this.consoleAudio.getText() + "\n\n Cachorro: " + df.format(percentsJ48[1]*100) + "%");
 				
 				double[] percentsPerceptron = AprendizadoMultilayerPerceptron.multilayerPerceptron(caracteristicas, Integer.parseInt(taxaAprendizagem.getText()), Double.parseDouble(cicloTreinamento.getText()));
 				
-				System.out.println("-------------- PORCENTAGEM MULTILAYER PERCEPTRON --------------");
-				
 				this.consoleAudio.setText(this.consoleAudio.getText() + "\n\n -------------- PORCENTAGEM MULTILAYER PERCEPTRON --------------");
 				
 				double porcentagemGato = percentsPerceptron[0];
 				double porcentagemCachorro = percentsPerceptron[1];
-				
-				System.out.println("Gato: " + percentsPerceptron[0]);
-				System.out.println("Cachorro: " + percentsPerceptron[1]);
-				System.out.println("Gato: " + df.format(percentsPerceptron[0]*100) + "%");
-				System.out.println("Cachorro: " + df.format(percentsPerceptron[1]*100) + "%");
 				
 				this.consoleAudio.setText(this.consoleAudio.getText() + "\n\n Gato: " + df.format(percentsPerceptron[0]*100) + "%");
 				this.consoleAudio.setText(this.consoleAudio.getText() + "\n\n Cachorro: " + df.format(percentsPerceptron[1]*100) + "%");

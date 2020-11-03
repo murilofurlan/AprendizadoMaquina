@@ -152,10 +152,6 @@ public class ExtractCaracteristicasSimpsons {
 
 			String classe = PersonagemSimpsomEnum.getClassePerValue(caracteristicas[cont][4]);
 
-			System.out.println("Marrom cabelo/bigode Ned: " + caracteristicas[cont][0] + " - Verde sweater Ned: "
-					+ caracteristicas[cont][1] + " - Azul cabelo Milhouse: " + caracteristicas[cont][2]
-					+ " - Vermelho bermuda/sapato Milhouse: " + caracteristicas[cont][3] + " - Classe: " + classe);
-
 			exportacao += caracteristicas[cont][0] + "," + caracteristicas[cont][1] + "," + caracteristicas[cont][2]
 					+ "," + caracteristicas[cont][3] + "," + classe + "\n";
 		}

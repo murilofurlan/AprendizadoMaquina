@@ -192,7 +192,6 @@ public class AudioFeatureExtraction {
 			}
 		}
 		
-		System.out.println("test");
 		double[][] melBasis = melFilter();
 		float[][] melS = new float[melBasis.length][spectro[0].length];
 		for (int i = 0; i < melBasis.length; i++) {
@@ -253,7 +252,7 @@ public class AudioFeatureExtraction {
     	        }
 
     	    } catch (IllegalArgumentException e) {
-    	        System.out.println(e);
+    	        e.printStackTrace();
     	    }
     		
     	  	
@@ -312,7 +311,7 @@ public class AudioFeatureExtraction {
 				
 			
 			} catch (IllegalArgumentException e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}		
 			
 		}
@@ -383,7 +382,7 @@ public class AudioFeatureExtraction {
 				}
 
 			} catch (IllegalArgumentException e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 			
 			
