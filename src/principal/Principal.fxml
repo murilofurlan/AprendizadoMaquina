@@ -170,7 +170,7 @@
                               </Button>
                               <HBox>
                                  <children>
-                                    <Label text="Taxa de aprendizagem">
+                                    <Label text="Taxa de aprendizagem (learningRate)">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -180,7 +180,7 @@
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="3.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <Label text="Ciclos de treinamento">
+                                    <Label text="Ciclos de treinamento (trainingTime)">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -191,6 +191,11 @@
                                        </HBox.margin>
                                     </TextField>
                                     <Button mnemonicParsing="false" onAction="#selecionaAudio" text="Selecionar áudio">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="3.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#iniciarClassificacao" text="Classificar">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="3.0" />
                                        </HBox.margin>
@@ -208,12 +213,22 @@
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
-                                    <Label layoutX="14.0" layoutY="14.0" text="Console">
+                                    <Label layoutX="14.0" layoutY="60.0" text="Console">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextArea fx:id="consoleAudio" layoutX="14.0" layoutY="39.0" prefHeight="590.0" prefWidth="578.0" />
+                                    <TextArea fx:id="consoleAudio" layoutX="14.0" layoutY="85.0" prefHeight="544.0" prefWidth="578.0" />
+                                    <Label layoutX="14.0" layoutY="25.0" text="Arquivo selecionado: ">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="arquivoSelecionado" layoutX="177.0" layoutY="25.0" prefHeight="25.0" prefWidth="413.0">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

@@ -1,5 +1,8 @@
 package extrator_caracteristicas;
 
+import java.util.Random;
+
+import weka.classifiers.evaluation.Evaluation;
 import weka.classifiers.functions.MultilayerPerceptron;
 import weka.core.DenseInstance;
 import weka.core.Instance;
@@ -21,6 +24,12 @@ public class AprendizadoMultilayerPerceptron {
 			
 			arvore.setTrainingTime(trainingTime);
 			arvore.setLearningRate(learningRate);
+			arvore.setMomentum(0.3);
+			arvore.setHiddenLayers("10");
+			
+			Evaluation eval = new Evaluation(instancias);
+			eval.crossValidateModel(arvore, instancias, 30, new Random(1));
+			
 			arvore.buildClassifier(instancias);
 			
 			Instance novo = new DenseInstance(instancias.numAttributes());

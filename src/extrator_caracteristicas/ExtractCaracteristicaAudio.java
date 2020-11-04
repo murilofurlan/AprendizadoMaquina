@@ -71,8 +71,12 @@ public class ExtractCaracteristicaAudio {
 		double caracteristica3 = 0; // STFT
 		double caracteristica4 = 0; // MCCF
 
-		// Extração de Caracteristicas
+		// Inicío da extração das caracteristicas
 
+		JLibrosa librosa = new JLibrosa();
+		WavFile wavFile = WavFile.openWavFile(f);
+		int sampleRate = (int) wavFile.getSampleRate();
+		
 		float[][] magnitude = new float[0][0];
 		magnitude = extraiMagnitude(f);
 
@@ -80,34 +84,20 @@ public class ExtractCaracteristicaAudio {
 
 		float[] MagnitudeFeature = new float[0];
 		MagnitudeFeature = extraiMagnitudeFeature(f, magnitude);
-
-		JLibrosa jLibrosa2 = new JLibrosa();
-		WavFile wavFile = WavFile.openWavFile(f);
-		;
-		int mSampleRate = (int) wavFile.getSampleRate();
-		wavFile.close();
-		float[][] melSpectrogramGerado = jLibrosa2.generateMelSpectroGram(MagnitudeFeature, mSampleRate, 2048, 128,
-				256);
+		
+		float[][] melSpectrogramGerado = librosa.generateMelSpectroGram(MagnitudeFeature, sampleRate, 2048, 128, 256);
 
 		caracteristica2 = melSpectrogramGerado[0][0];
 
-		JLibrosa jLibrosa3 = new JLibrosa();
-		WavFile wavFile3 = WavFile.openWavFile(f);
-		;
-		int mSampleRate3 = (int) wavFile3.getSampleRate();
-		wavFile3.close();
-		Complex[][] stftComplexValues = jLibrosa3.generateSTFTFeatures(MagnitudeFeature, mSampleRate3, 40);
+		Complex[][] stftComplexValues = librosa.generateSTFTFeatures(MagnitudeFeature, sampleRate, 40);
 
 		caracteristica3 = stftComplexValues[0].length;
 
-		JLibrosa jLibrosa4 = new JLibrosa();
-		WavFile wavFile4 = WavFile.openWavFile(f);
-		;
-		int mSampleRate4 = (int) wavFile4.getSampleRate();
-		wavFile4.close();
-		float[][] mfccValues = jLibrosa4.generateMFCCFeatures(MagnitudeFeature, mSampleRate4, 40);
+		float[][] mfccValues = librosa.generateMFCCFeatures(MagnitudeFeature, sampleRate, 40);
 
 		caracteristica4 = mfccValues[0].length;
+
+		wavFile.close();
 
 		// Fim da Extração
 
@@ -116,7 +106,7 @@ public class ExtractCaracteristicaAudio {
 		caracteristicas[2] = caracteristica3;
 		caracteristicas[3] = caracteristica4;
 
-		// APRENDIZADO SUPERVISIONADO - JÁ SABE QUAL A CLASSE NOS AUDIOS DE TREINAMENTO
+		// Ensinando
 		caracteristicas[4] = f.getName().charAt(0) == 'c' ? 0 : 1;
 
 		return caracteristicas;
